@@ -26,5 +26,6 @@ namespace HospitalGame.Controllers
 
             return View();
         }
+
     }
 }

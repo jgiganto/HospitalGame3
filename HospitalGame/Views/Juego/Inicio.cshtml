@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Inicio";
+}
+ <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery UI Droppable - Default functionality</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+
+ 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+
+    //$(document).ready(function () {
+    //    setTimeout(function () {
+    //        $("#saludo").val("juan");          
+    //        setTimeout(function () {
+    //            $("#boton").click();
+                
+    //        }, 1000);
+
+    //    }, 1000);
+
+    //});
+    /*String saludo, int IDPaciente, String Nombre, String Apellido, int Edad, int Reloj,
+          int IDEnfermedad, String Baja, String Eliminado*/
+
+</script>
+
+<h2>Inicio</h2>
+
+ @using (Html.BeginForm()) {
+     Pon algo<br />
+   @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
+       IDPaciente <input type="number" name="IDPaciente" id="IDPaciente" /><br />
+     Nombre <input type="text" name="Nombre" id="Nombre" /><br />
+    Apellido <input type="text" name="Apellido" id="Apellido" /><br />
+     Edad <input type="number" name="Edad" id="Edad" /><br />
+    Reloj <input type="number" name="Reloj" id="Reloj" /><br />
+     IDEnfermedad<input type="number" name="IDEnfermedad" id="IDEnfermedad" /><br />
+    Baja<input type="text" name="Baja" id="Baja" /><br />
+     Eliminado <input type="text" name="Eliminado" id="Eliminado" /><br />
+
+
+
+    <button type="submit" id="boton"  >Enviar</button>
+ }
+
+<h1 > @ViewBag.saludo </h1>
+<h1 style="color:rebeccapurple">@ViewBag.controlador</h1>
+
+
+
+
+ 
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
