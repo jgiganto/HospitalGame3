@@ -2,6 +2,7 @@
 @{
     ViewBag.Title = "Inicio";
 }
+@model List<String>
  <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Droppable - Default functionality</title>
@@ -11,42 +12,170 @@
  
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ 
+<script>  
+  
+    $(document).ready(function () {
+        setTimeout(clickbutton, 10);
 
-    //$(document).ready(function () {
-    //    setTimeout(function () {
-    //        $("#saludo").val("juan");          
-    //        setTimeout(function () {
-    //            $("#boton").click();
-                
-    //        }, 1000);
+        function clickbutton() {
+            // simulamos el click del mouse en el boton del formulario
+            $("#timer1").click();
+        }
+       
+               
+        var saludo; var IDPaciente; var Nombre; var Apellido; var Edad; var Reloj;
+        var IDEnfermedad; var Baja; var Eliminado;
+        function countdown (element, minutes, seconds) {
+            // Fetch the display element
+            var el = document.getElementById(element);
 
-    //    }, 1000);
+            // Set the timer
+            var interval = setInterval(function () {
+                if (seconds == 0) {
+                    if (minutes == 0) {
+                        (el.innerHTML = "STOP!");
+                        var i = Math.floor((Math.random() * 100) + 1);
+                        $("#IDPaciente").val(i) ;
+                        $("#Nombre").val(i);
+                        $("#Apellido").val(i);
+                        $("#Edad").val(i);
+                        $("#Reloj").val(i);
+                        $("#IDEnfermedad").val(i);
+                        $("#Baja").val(i);
+                        $("#Eliminado").val(i);  
+                        $("#boton").click(); 
+                        
+                        clearInterval(interval);
+                        return;
+                    } else {
+                        minutes--;
+                        seconds = 60;
+                    }
+                }
 
-    //});
-    /*String saludo, int IDPaciente, String Nombre, String Apellido, int Edad, int Reloj,
-          int IDEnfermedad, String Baja, String Eliminado*/
+                if (minutes > 0) {
+                    var minute_text = minutes + (minutes > 1 ? ' minutes' : ' minute');
+                } else {
+                    var minute_text = '';
+                }
 
+                var second_text = seconds > 1 ? '' : '';
+                el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + '';
+                seconds--;
+            }, 1000);
+        }
+        var start1 = document.getElementById('timer1');
+        var start2 = document.getElementById('timer2');
+        var start3 = document.getElementById('timer3');
+        var i = Math.floor((Math.random() * 1) + 1);
+        var j = Math.floor((Math.random() * 10) + 1);
+        var k = Math.floor((Math.random() * 10) + 1);
+        start1.onclick = function () {
+            countdown('countdown1', 0, i);
+        }
+
+        start2.onclick = function () {
+            countdown('countdown2', 0, j);
+        }
+        start3.onclick = function () {
+            countdown('countdown3', 0, k);
+        }
+
+
+    });
 </script>
+<pruebas>
+    @*<script>
+
+            var worker = new Worker('~/js/crearusuarios.js');
+            worker.postMessage("");
+
+
+
+
+        </script>
+
+        <script>
+            /*String saludo, int IDPaciente, String Nombre, String Apellido, int Edad, int Reloj,
+            int IDEnfermedad, String Baja, String Eliminado
+
+            function timedAlert(msg, timing){
+            setTimeout(function(){
+            alert(msg);
+            }, timing);
+            }
+
+            function yourFunction(time, counter){
+            for (var i = 1; i <= counter; i++) {
+            var msg = i, timing = i * time * 1000; //this is in seconds
+            timedAlert (msg, timing);
+            };
+            }
+
+            yourFunction(timeInSeconds, counter); // well here are the values of your choice.
+
+            setTimeout(function () {
+            alert("numero "+i);
+            setTimeout(function () {
+
+            alert("numero " + i);
+            $("#IDPaciente").val(i).delay(2000);
+            $("#Nombre").val(i);
+            $("#Apellido").val(i);
+            $("#Edad").val(i);
+            $("#Reloj").val(i);
+            $("#IDEnfermedad").val(i);
+            $("#Baja").val(i);
+            $("#Eliminado").val(i);
+
+            $("#boton").click();
+
+
+
+            }, 1000);
+
+            }, 1000);
+            */
+        </script>*@
+</pruebas>
 
 <h2>Inicio</h2>
 
- @using (Html.BeginForm()) {
-     Pon algo<br />
-   @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
-       IDPaciente <input type="number" name="IDPaciente" id="IDPaciente" /><br />
-     Nombre <input type="text" name="Nombre" id="Nombre" /><br />
+<form method="post" >
+    Pon algo<br />
+    @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
+    IDPaciente <input type="number" name="IDPaciente" id="IDPaciente"/><br />
+    Nombre <input type="text" name="Nombre" id="Nombre"   /><br />
     Apellido <input type="text" name="Apellido" id="Apellido" /><br />
-     Edad <input type="number" name="Edad" id="Edad" /><br />
+    Edad <input type="number" name="Edad" id="Edad"/><br />
     Reloj <input type="number" name="Reloj" id="Reloj" /><br />
-     IDEnfermedad<input type="number" name="IDEnfermedad" id="IDEnfermedad" /><br />
-    Baja<input type="text" name="Baja" id="Baja" /><br />
-     Eliminado <input type="text" name="Eliminado" id="Eliminado" /><br />
+    IDEnfermedad<input type="number" name="IDEnfermedad" id="IDEnfermedad" /><br />
+    Baja<input type="text" name="Baja" id="Baja"  /><br />
+    Eliminado <input type="text" name="Eliminado"  id="Eliminado" /><br />
+     
+    <button type="submit" id="boton">Enviar</button>
+</form>
 
+ 
 
+   <div id='countdown1'></div>
+<div id='countdown2'></div>
+<div id='countdown3'></div>
 
-    <button type="submit" id="boton"  >Enviar</button>
- }
+<input id="timer1" type="button" value="Start timer 1" />
+<input id="timer2" type="button" value="Start timer 2" />
+<input id="timer3" type="button" value="Start timer 3" />
+@if (Model != null)
+{
+    <ul>
+        @foreach(var ape in Model)
+        {
+        <li>@ape</li>
+        }
+    </ul>
+}
 
 <h1 > @ViewBag.saludo </h1>
 <h1 style="color:rebeccapurple">@ViewBag.controlador</h1>

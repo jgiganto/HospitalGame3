@@ -27,9 +27,16 @@ namespace HospitalGame.Models
         public  void InsertarPacientes(int IDPaciente, String Nombre, String Apellido, int Edad, int Reloj,
           int IDEnfermedad, String Baja, String Eliminado)
         {
-            ObjectResult<PACIENTES> r = contexto.INSERTARPACIENTES(IDPaciente, Nombre, Apellido, Edad, Reloj, IDEnfermedad, Baja, Eliminado);
+            
+                contexto.INSERTARPACIENTES(IDPaciente, Nombre, Apellido, Edad, Reloj, IDEnfermedad, Baja, Eliminado);
             
              
+        }
+        public List<String> GetPacientes()
+        {
+            var consulta = from datos in contexto.PACIENTES
+                           select datos.Apellido;
+            return consulta.ToList();
         }
 
     }
