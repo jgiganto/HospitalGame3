@@ -35,8 +35,21 @@ namespace HospitalGame.Models
         public List<String> GetPacientes()
         {
             var consulta = from datos in contexto.PACIENTES
-                           select datos.Apellido;
+                           select datos.Apellido;          
             return consulta.ToList();
+        }
+        public int GetMaximo()
+        {
+            var consulta = from datos in contexto.PACIENTES
+                           select datos.IDPaciente;
+            if (consulta.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return consulta.Max() + 1;
+            }
         }
 
     }

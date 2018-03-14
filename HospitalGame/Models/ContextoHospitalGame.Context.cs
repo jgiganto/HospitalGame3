@@ -31,7 +31,6 @@ namespace HospitalGame.Models
         public DbSet<ENFERMEDADES> ENFERMEDADES { get; set; }
         public DbSet<LISTAENFERMOS> LISTAENFERMOS { get; set; }
         public DbSet<PACIENTES> PACIENTES { get; set; }
-        public DbSet<sysdiagrams> sysdiagrams { get; set; }
     
         public virtual int INSERTARPACIENTES(Nullable<int> iDPaciente, string nombre, string apellido, Nullable<int> edad, Nullable<int> reloj, Nullable<int> iDEnfermedad, string baja, string eliminado)
         {

@@ -154,35 +154,32 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClasePacientes.cs" />
+    <Compile Include="Models\ContextoHospitalGame.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextoHospitalGame.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContextoHospitalGame.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextoHospitalGame.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ContextoHospitalGame.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ContextoHospitalGame.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ENFERMEDADES.cs">
-      <DependentUpon>HospitalGame.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HospitalGame.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HospitalGame.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HospitalGame.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HospitalGame.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HospitalGame.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HospitalGame.edmx</DependentUpon>
+      <DependentUpon>ContextoHospitalGame.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LISTAENFERMOS.cs">
-      <DependentUpon>HospitalGame.tt</DependentUpon>
+      <DependentUpon>ContextoHospitalGame.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModeloGame.cs" />
     <Compile Include="Models\PACIENTES.cs">
-      <DependentUpon>HospitalGame.tt</DependentUpon>
+      <DependentUpon>ContextoHospitalGame.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pruebas.cs" />
-    <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>HospitalGame.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -195,27 +192,27 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="js\crearusuarios.js" />
-    <Content Include="Models\HospitalGame.Context.tt">
+    <Content Include="Models\ContextoHospitalGame.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HospitalGame.Context.cs</LastGenOutput>
-      <DependentUpon>HospitalGame.edmx</DependentUpon>
+      <DependentUpon>ContextoHospitalGame.edmx</DependentUpon>
+      <LastGenOutput>ContextoHospitalGame.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\HospitalGame.tt">
+    <Content Include="Models\ContextoHospitalGame.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HospitalGame.edmx</DependentUpon>
-      <LastGenOutput>HospitalGame.cs</LastGenOutput>
+      <DependentUpon>ContextoHospitalGame.edmx</DependentUpon>
+      <LastGenOutput>ContextoHospitalGame.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\HospitalGame.edmx">
+    <EntityDeploy Include="Models\ContextoHospitalGame.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HospitalGame.Designer.cs</LastGenOutput>
+      <LastGenOutput>ContextoHospitalGame.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\HospitalGame.edmx.diagram">
-      <DependentUpon>HospitalGame.edmx</DependentUpon>
+    <Content Include="Models\ContextoHospitalGame.edmx.diagram">
+      <DependentUpon>ContextoHospitalGame.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
