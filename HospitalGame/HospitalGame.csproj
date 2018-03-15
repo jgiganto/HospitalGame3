@@ -191,6 +191,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="js\crearusuario2.js" />
     <Content Include="js\crearusuarios.js" />
     <Content Include="Models\ContextoHospitalGame.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

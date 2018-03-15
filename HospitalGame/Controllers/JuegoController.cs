@@ -37,7 +37,7 @@ namespace HospitalGame.Controllers
             //ViewBag.controlador = "He entrado al controlador " + saludo;
 
             //INSERTAR PACIENTE
-            IDPaciente = modelo.GetMaximo() + 1  ;
+            IDPaciente = modelo.GetMaximo();
 
                 modelo.InsertarPacientes(IDPaciente.GetValueOrDefault(), Nombre, Apellido,Edad, Reloj,IDEnfermedad, Baja, Eliminado);
             List<string> lista = modelo.GetPacientes();

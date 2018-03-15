@@ -3,31 +3,65 @@
     ViewBag.Title = "Inicio";
 }
 @model List<String>
- <meta charset="utf-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Droppable - Default functionality</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 
- 
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- 
-<script>  
-  
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<style>
+    #draggable {
+        width: 100px;
+        height: 100px;
+        padding: 0.5em;
+        float: left;
+        margin: 10px 10px 10px 0;
+    }
+
+    #droppable {
+        width: 150px;
+        height: 150px;
+        padding: 0.5em;
+        float: left;
+        margin: 10px;
+    }
+</style>
+<script>
+    $(function () {
+        $("#draggable").draggable();
+        $("#droppable").droppable({
+            drop: function (event, ui) {
+                $(this)
+                    .addClass("ui-state-highlight")
+                    .find("p")
+                    .html("Dropped!");
+            }
+        });
+    });
+</script>
+
+<script>
+
     $(document).ready(function () {
         setTimeout(clickbutton, 10);
 
         function clickbutton() {
             // simulamos el click del mouse en el boton del formulario
+            
             $("#timer1").click();
         }
-       
-               
+
+
         var saludo; var IDPaciente; var Nombre; var Apellido; var Edad; var Reloj;
         var IDEnfermedad; var Baja; var Eliminado;
-        function countdown (element, minutes, seconds) {
+        function countdown(element, minutes, seconds) {
             // Fetch the display element
             var el = document.getElementById(element);
 
@@ -36,17 +70,31 @@
                 if (seconds == 0) {
                     if (minutes == 0) {
                         (el.innerHTML = "STOP!");
-                        var i = Math.floor((Math.random() * 100) + 1);
-                        $("#IDPaciente").val(i) ;
+                       // var i = Math.floor((Math.random() * 100) + 1);
+                        $("#IDPaciente").val(i);
                         $("#Nombre").val(i);
                         $("#Apellido").val(i);
                         $("#Edad").val(i);
                         $("#Reloj").val(i);
                         $("#IDEnfermedad").val(i);
                         $("#Baja").val(i);
-                        $("#Eliminado").val(i);  
-                        $("#boton").click(); 
-                        
+                        $("#Eliminado").val(i);
+
+                        $("#formulario").submit(function () {
+                            $.ajax({
+                                type: 'POST',
+                                url: ('Inicio'),
+                                data: $(this).serialize(),
+                                success: function (data) {
+                                    countdown('countdown1', 0, 5);
+                                    $("#boton").click();
+                                }
+                            })
+                            return false;
+                        });
+                        $("#boton").click();
+
+
                         clearInterval(interval);
                         return;
                     } else {
@@ -75,7 +123,6 @@
         start1.onclick = function () {
             countdown('countdown1', 0, i);
         }
-
         start2.onclick = function () {
             countdown('countdown2', 0, j);
         }
@@ -86,6 +133,7 @@
 
     });
 </script>
+
 <pruebas>
     @*<script>
 
@@ -143,24 +191,24 @@
 
 <h2>Inicio</h2>
 
-<form method="post" >
+<form method="post" id="formulario" name="formulario">
     Pon algo<br />
     @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
-    IDPaciente <input type="number" name="IDPaciente" id="IDPaciente"/><br />
-    Nombre <input type="text" name="Nombre" id="Nombre"   /><br />
+    IDPaciente <input type="number" name="IDPaciente" id="IDPaciente" /><br />
+    Nombre <input type="text" name="Nombre" id="Nombre" /><br />
     Apellido <input type="text" name="Apellido" id="Apellido" /><br />
-    Edad <input type="number" name="Edad" id="Edad"/><br />
+    Edad <input type="number" name="Edad" id="Edad" /><br />
     Reloj <input type="number" name="Reloj" id="Reloj" /><br />
     IDEnfermedad<input type="number" name="IDEnfermedad" id="IDEnfermedad" /><br />
-    Baja<input type="text" name="Baja" id="Baja"  /><br />
-    Eliminado <input type="text" name="Eliminado"  id="Eliminado" /><br />
-     
+    Baja<input type="text" name="Baja" id="Baja" /><br />
+    Eliminado <input type="text" name="Eliminado" id="Eliminado" /><br />
+
     <button type="submit" id="boton">Enviar</button>
 </form>
 
- 
 
-   <div id='countdown1'></div>
+
+<div id='countdown1'></div>
 <div id='countdown2'></div>
 <div id='countdown3'></div>
 
@@ -170,27 +218,34 @@
 @if (Model != null)
 {
     <ul>
-        @foreach(var ape in Model)
+        @foreach (var ape in Model)
         {
-        <li>@ape</li>
+            <li>@ape</li>
         }
     </ul>
 }
 
-<h1 > @ViewBag.saludo </h1>
+<h1> @ViewBag.saludo </h1>
 <h1 style="color:rebeccapurple">@ViewBag.controlador</h1>
 
 
 
 
- 
+<div id="draggable" class="ui-widget-content">
+    <p>Drag me to my target</p>
+</div>
+
+<div id="droppable" class="ui-widget-header">
+    <p>Drop here</p>
+</div>
 
 
 
- 
 
 
- 
+
+
+
 
 
 
