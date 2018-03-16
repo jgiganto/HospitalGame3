@@ -1,6 +1,6 @@
 ﻿function arrastrar() {
     $("#draggable").draggable();
-    $("#droppable").droppable({
+    $("div[id^='droppable']").droppable({
         drop: function (event, ui) {
             $(this)
                 .addClass("ui-state-highlight")

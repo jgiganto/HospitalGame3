@@ -8,14 +8,11 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 
-
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
 <style>
+
     #draggable {
         width: 100px;
         height: 100px;
@@ -23,20 +20,21 @@
         float: left;
         margin: 10px 10px 10px 0;
     }
-
-    #droppable {
+    div[id^="droppable"] {
         width: 150px;
         height: 150px;
         padding: 0.5em;
         float: left;
         margin: 10px;
     }
+   
 </style>
 <script src="~/js/arrastrar.js"></script>
 <script src="~/js/EnviarAsincrono.js"></script>
 <script src="~/js/CuentaAtras.js"></script>
 <script src="~/js/Random.js"></script>
 <script src="~/js/ClickBoton.js"></script>
+<script src="~/js/GeneradorNombresDrop.js"></script>
 <script>
 
     //$("#formulario").submit(function () {
@@ -53,13 +51,11 @@
     //    return false;
     //});
 </script>
-
 <script>
     $(function () {
         arrastrar();
     });
 </script>
-
 <script>
     /* FUNCIONES A ORDENAR---------------------------------------------------------
      *
@@ -149,7 +145,7 @@
         var parar = document.getElementById('detener');
 
         start1.onclick = function () {
-            i = Aleatorios(4);
+            i = Aleatorios(2);
             new countdown('countdown1', 0, i);
         }
         start2.onclick = function () {
@@ -157,17 +153,16 @@
             new countdown('countdown2', 0, i);
         }
         start3.onclick = function () {
-            i = Aleatorios(10); 
+            i = Aleatorios(10);
             new countdown('countdown3', 0, i);
         }
-        parar.onclick = function () {         
+        parar.onclick = function () {
             clearInterval(interval1); clearInterval(interval2); clearInterval(interval3);
         }
 
 
     });
 </script>
-
 
 <pruebas>
     @*<script>
@@ -214,10 +209,7 @@
         </script>*@
 </pruebas>
 
-
-
 <h2>Inicio</h2>
-
 <form method="post" id="formulario" name="formulario">
     Pon algo<br />
     @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
@@ -229,16 +221,12 @@
     IDEnfermedad<input type="number" name="IDEnfermedad" id="IDEnfermedad" /><br />
     Baja<input type="text" name="Baja" id="Baja" /><br />
     Eliminado <input type="text" name="Eliminado" id="Eliminado" /><br />
-
     <button type="submit" id="boton">Enviar</button>
 </form>
-
-
 
 <div id='countdown1'></div>
 <div id='countdown2'></div>
 <div id='countdown3'></div>
-
 <input id="timer1" type="button" value="Start timer 1" />
 <input id="timer2" type="button" value="Start timer 2" />
 <input id="timer3" type="button" value="Start timer 3" />
@@ -252,18 +240,21 @@
         }
     </ul>
 }
-
 <h1> @ViewBag.saludo </h1>
 <h1 style="color:rebeccapurple">@ViewBag.controlador</h1>
 
-
-
-
-<div id="draggable" class="ui-widget-content">
-    <p>Drag me to my target</p>
-</div>
-<div id="dinamico">
+<div id="dinamico" style="z-index:-1">
+    <div id="draggable" class="ui-widget-content" style="z-index:2">
+        <p>Drag me to my target</p>
+    </div>
     @*<div id="droppable" class="ui-widget-header">
         <p>Drop here</p>
     </div>*@
 </div>
+
+
+
+
+
+
+@*<div style="position:absolute;top:100px;left:200px"><h1>dadeddeddscfdsfdsfds</h1></div>*@

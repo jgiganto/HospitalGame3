@@ -1,9 +1,19 @@
-﻿var interval1; var interval2; var interval3; var a; var b; var c;
-a = false; b = false; c = false;
-var drop = "<div id='droppable' class='ui-widget-header'> <p>Drop here</p > </div >"; 
+﻿
+var interval1; var interval2; var interval3; var a; var b; var c;
+a = false; b = false; c = false; var num = 0; var nombre = ""; 
+var x = ""; var y = "";
+//var desplazamiento = ale
+
+
 
 
 function countdown(element, minutes, seconds) {
+
+    nombre = NombresDrop();
+    x = PosicionAleatoria();
+    y = PosicionAleatoria();
+    var drop = "<div id=" + nombre + "' class='ui-widget-header' style='position:relative;top:"+x+"px;left:"+y+"px'>";
+    drop += "<p> Drop here</p> </div>"; 
     // Fetch the display element
     var el = document.getElementById(element);
     // Set the timer
@@ -13,11 +23,11 @@ function countdown(element, minutes, seconds) {
             if (seconds == 0) {
                 if (minutes == 0) {
                     (el.innerHTML = "STOP!");//AQUI SE EJECUTA CÓDIGO CUANDO FINALIZA LA CUENTA ATRAS 
-                    $("#dinamico").html(drop);
+                    $("#dinamico").append(drop);
+                    
                     arrastrar();
-                    clearInterval(interval1);
-                   
-                    //$("#timer1").click();
+                    clearInterval(interval1);                   
+                    $("#timer1").click();
                     return;
                 } else {
                     minutes--;
@@ -35,7 +45,7 @@ function countdown(element, minutes, seconds) {
 
             el.innerHTML = minute_text + ' ' + seconds + ' ' + second_text + '';
             seconds--;
-        }, 1000);
+        }, 300);
     }
     if (element == 'countdown2') {
 
