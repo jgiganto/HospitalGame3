@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3377daa06f0a4defbc41a0318d28f16a" Name="Diagram1">
+        <EntityTypeShape EntityType="HOSPITALGAMEModel.ENFERMEDADES" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSPITALGAMEModel.LISTAENFERMOS" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HOSPITALGAMEModel.PACIENTES" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="HOSPITALGAMEModel.FK_LISTAENFERMOS_ENFERMEDADES" ManuallyRouted="false" />
+        <AssociationConnector Association="HOSPITALGAMEModel.FK_LISTAENFERMOS_PACIENTES" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

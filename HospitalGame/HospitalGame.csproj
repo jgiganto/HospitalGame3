@@ -154,30 +154,30 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ClasePacientes.cs" />
-    <Compile Include="Models\ContextoHospitalGame.Context.cs">
+    <Compile Include="Models\ContextoHospital.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ContextoHospitalGame.Context.tt</DependentUpon>
+      <DependentUpon>ContextoHospital.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ContextoHospitalGame.cs">
+    <Compile Include="Models\ContextoHospital.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ContextoHospitalGame.tt</DependentUpon>
+      <DependentUpon>ContextoHospital.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ContextoHospitalGame.Designer.cs">
+    <Compile Include="Models\ContextoHospital.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ContextoHospitalGame.edmx</DependentUpon>
+      <DependentUpon>ContextoHospital.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ENFERMEDADES.cs">
-      <DependentUpon>ContextoHospitalGame.tt</DependentUpon>
+      <DependentUpon>ContextoHospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\LISTAENFERMOS.cs">
-      <DependentUpon>ContextoHospitalGame.tt</DependentUpon>
+      <DependentUpon>ContextoHospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ModeloGame.cs" />
     <Compile Include="Models\PACIENTES.cs">
-      <DependentUpon>ContextoHospitalGame.tt</DependentUpon>
+      <DependentUpon>ContextoHospital.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Pruebas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -199,29 +199,31 @@
     <Content Include="js\CuentaAtras.js" />
     <Content Include="js\EnviarAsincrono.js" />
     <Content Include="js\GeneradorNombresDrop.js" />
+    <Content Include="js\MostrarPacientes.js" />
     <Content Include="js\Random.js" />
-    <Content Include="Models\ContextoHospitalGame.Context.tt">
+    <Content Include="Models\ContextoHospital.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ContextoHospitalGame.edmx</DependentUpon>
-      <LastGenOutput>ContextoHospitalGame.Context.cs</LastGenOutput>
+      <DependentUpon>ContextoHospital.edmx</DependentUpon>
+      <LastGenOutput>ContextoHospital.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\ContextoHospitalGame.tt">
+    <Content Include="Models\ContextoHospital.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ContextoHospitalGame.edmx</DependentUpon>
-      <LastGenOutput>ContextoHospitalGame.cs</LastGenOutput>
+      <DependentUpon>ContextoHospital.edmx</DependentUpon>
+      <LastGenOutput>ContextoHospital.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <EntityDeploy Include="Models\ContextoHospitalGame.edmx">
+    <EntityDeploy Include="Models\ContextoHospital.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ContextoHospitalGame.Designer.cs</LastGenOutput>
+      <LastGenOutput>ContextoHospital.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\ContextoHospitalGame.edmx.diagram">
-      <DependentUpon>ContextoHospitalGame.edmx</DependentUpon>
+    <Content Include="Models\ContextoHospital.edmx.diagram">
+      <DependentUpon>ContextoHospital.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\HospitalGameJGD - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -252,6 +254,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Juego\Inicio.cshtml" />
+    <Content Include="Views\Juego\VistaParcial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

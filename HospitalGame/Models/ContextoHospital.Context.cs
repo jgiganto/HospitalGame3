@@ -16,10 +16,10 @@ namespace HospitalGame.Models
     using System.Data.Objects.DataClasses;
     using System.Linq;
     
-    public partial class ContextoHospitalGame : DbContext
+    public partial class ContextoHospital : DbContext
     {
-        public ContextoHospitalGame()
-            : base("name=ContextoHospitalGame")
+        public ContextoHospital()
+            : base("name=ContextoHospital")
         {
         }
     

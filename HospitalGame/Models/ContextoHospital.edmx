@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HospitalGame.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HOSPITALGAMEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ENFERMEDADES">
           <Key>
             <PropertyRef Name="IDEnfermedad" />
@@ -71,7 +71,7 @@
           <Parameter Name="Baja" Type="nvarchar" Mode="In" />
           <Parameter Name="Eliminado" Type="nvarchar" Mode="In" />
         </Function>
-        <EntityContainer Name="HospitalGameStoreContainer">
+        <EntityContainer Name="HOSPITALGAMEModelStoreContainer">
           <EntitySet Name="ENFERMEDADES" EntityType="Self.ENFERMEDADES" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="LISTAENFERMOS" EntityType="Self.LISTAENFERMOS" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" Schema="dbo" store:Type="Tables" />
@@ -88,7 +88,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HospitalGame" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="HOSPITALGAMEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ENFERMEDADES">
           <Key>
             <PropertyRef Name="IDEnfermedad" />
@@ -149,7 +149,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="ContextoHospitalGame" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ContextoHospital" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ENFERMEDADES" EntityType="Self.ENFERMEDADES" />
           <EntitySet Name="LISTAENFERMOS" EntityType="Self.LISTAENFERMOS" />
           <EntitySet Name="PACIENTES" EntityType="Self.PACIENTES" />
@@ -177,9 +177,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HospitalGameStoreContainer" CdmEntityContainer="ContextoHospitalGame">
+        <EntityContainerMapping StorageEntityContainer="HOSPITALGAMEModelStoreContainer" CdmEntityContainer="ContextoHospital">
           <EntitySetMapping Name="ENFERMEDADES">
-            <EntityTypeMapping TypeName="HospitalGame.ENFERMEDADES">
+            <EntityTypeMapping TypeName="HOSPITALGAMEModel.ENFERMEDADES">
               <MappingFragment StoreEntitySet="ENFERMEDADES">
                 <ScalarProperty Name="IDEnfermedad" ColumnName="IDEnfermedad" />
                 <ScalarProperty Name="Enfermedad" ColumnName="Enfermedad" />
@@ -190,7 +190,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="LISTAENFERMOS">
-            <EntityTypeMapping TypeName="HospitalGame.LISTAENFERMOS">
+            <EntityTypeMapping TypeName="HOSPITALGAMEModel.LISTAENFERMOS">
               <MappingFragment StoreEntitySet="LISTAENFERMOS">
                 <ScalarProperty Name="IDCaso" ColumnName="IDCaso" />
                 <ScalarProperty Name="IDPaciente" ColumnName="IDPaciente" />
@@ -200,7 +200,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PACIENTES">
-            <EntityTypeMapping TypeName="HospitalGame.PACIENTES">
+            <EntityTypeMapping TypeName="HOSPITALGAMEModel.PACIENTES">
               <MappingFragment StoreEntitySet="PACIENTES">
                 <ScalarProperty Name="IDPaciente" ColumnName="IDPaciente" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
@@ -213,7 +213,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="INSERTARPACIENTES" FunctionName="HospitalGame.Store.INSERTARPACIENTES" />
+          <FunctionImportMapping FunctionImportName="INSERTARPACIENTES" FunctionName="HOSPITALGAMEModel.Store.INSERTARPACIENTES" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

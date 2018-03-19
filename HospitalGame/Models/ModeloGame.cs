@@ -19,10 +19,10 @@ namespace HospitalGame.Models
 {
     public class ModeloGame
     {
-        ContextoHospitalGame contexto;
+        ContextoHospital contexto;
         public ModeloGame()
         {
-            this.contexto = new ContextoHospitalGame();
+            this.contexto = new ContextoHospital();
         }
         public  void InsertarPacientes(int IDPaciente, String Nombre, String Apellido, int Edad, int Reloj,
           int IDEnfermedad, String Baja, String Eliminado)

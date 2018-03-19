@@ -1,57 +1,45 @@
-﻿<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Droppable - Default functionality</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <style>
-        #draggable {
-            width: 100px;
-            height: 100px;
-            padding: 0.5em;
-            float: left;
-            margin: 10px 10px 10px 0;
-        }
-
-        #droppable {
-            width: 150px;
-            height: 150px;
-            padding: 0.5em;
-            float: left;
-            margin: 10px;
-        }
-    </style>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#draggable").draggable();
-            $("#droppable").droppable({
-                drop: function (event, ui) {
-                    $(this)
-                        .addClass("ui-state-highlight")
-                        .find("p")
-                        .html("Dropped!");
-                }
-            });
-        });
-
-         
-    
-    </script>
-</head>
-<body>
-
-    <div id="draggable" class="ui-widget-content">
-        <p>Drag me to my target</p>
-    </div>
-
-    <div id="droppable" class="ui-widget-header">
-        <p>Drop here</p>
-    </div>
-
-
-</body>
-</html>
+﻿<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;margin:0px auto;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:20px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:20px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+.tg .tg-rg0h{font-size:12px;text-align:center;vertical-align:top}
+media screen and (max-width: 767px) { .tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+<div class="tg-wrap">
+    <table class="table table-bordered" style="width:700px;height:900px">
+        <tbody>
+            <tr>
+                <th class="tg-yw4l" colspan="9"></th>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" rowspan="6"></td>
+                <td class="tg-yw4l" colspan="5" rowspan="3">tablero de juego</td>
+                <td class="tg-yw4l"></td>
+                <td class="tg-yw4l">Score</td>
+                <td class="tg-yw4l" rowspan="6"></td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" colspan="2" rowspan="5"></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td class="tg-rg0h" colspan="5">MEDICINAS</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">mas1</td>
+                <td class="tg-yw4l">mas2</td>
+                <td class="tg-yw4l">mas3</td>
+                <td class="tg-yw4l">mas4</td>
+                <td class="tg-yw4l"></td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">med1</td>
+                <td class="tg-yw4l">med2</td>
+                <td class="tg-yw4l">med3</td>
+                <td class="tg-yw4l">med4</td>
+                <td class="tg-yw4l"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

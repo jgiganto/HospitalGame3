@@ -1,40 +1,110 @@
 ﻿@{
     ViewBag.Title = "Inicio";
 }
-@model List<String>
+@model  String
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>jQuery UI Droppable - Default functionality</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+@*<link rel="stylesheet" href="/resources/demos/style.css">*@
+<style type="text/css">
 
+    .tg {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0px auto;
+    }
+
+        .tg td {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 20px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+
+        .tg th {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            font-weight: normal;
+            padding: 20px 5px;
+            border-style: solid;
+            border-width: 1px;
+            overflow: hidden;
+            word-break: normal;
+        }
+
+        .tg .tg-yw4l {
+            vertical-align: top
+        }
+
+        .tg .tg-rg0h {
+            font-size: 12px;
+            text-align: center;
+            vertical-align: top
+        }
+
+    media screen and (max-width: 767px) {
+        .tg
+
+    {
+        width: auto !important;
+    }
+
+    .tg col {
+        width: auto !important;
+    }
+
+    .tg-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: auto 0px;
+    }
+    }
+</style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
 <style>
 
-    #draggable {
+
+
+    div[id^="draggable"] {
+        width: 40px;
+        height: 40px;
+        padding: 0.5em;
+        float: none;
+        margin: 10px 10px 10px 0;
+        background-color: lavenderblush;
+    }
+
+    div[id^="droppable"] {
         width: 100px;
         height: 100px;
         padding: 0.5em;
         float: left;
-        margin: 10px 10px 10px 0;
-    }
-    div[id^="droppable"] {
-        width: 150px;
-        height: 150px;
-        padding: 0.5em;
-        float: left;
         margin: 10px;
+        background-color: darkslateblue;
     }
-   
 </style>
-<script src="~/js/arrastrar.js"></script>
+<style>
+
+    #tablero {
+        background-color: aliceblue;
+    }
+</style>
 <script src="~/js/EnviarAsincrono.js"></script>
+<script src="~/js/arrastrar.js"></script>
 <script src="~/js/CuentaAtras.js"></script>
 <script src="~/js/Random.js"></script>
 <script src="~/js/ClickBoton.js"></script>
 <script src="~/js/GeneradorNombresDrop.js"></script>
+<script src="~/js/MostrarPacientes.js"></script>
 <script>
 
     //$("#formulario").submit(function () {
@@ -127,43 +197,6 @@
 
      */
 </script>
-<script>
-
-    $(document).ready(function () {
-        var i;
-        setTimeout(clickbutton, 10);
-
-        //function clickbutton() {
-        //    // simulamos el click del mouse en el boton del formulario
-        //    $("#timer1").click(); $("#timer2").click(); $("#timer3").click();
-        //}
-        //clickbutton();
-
-        var start1 = document.getElementById('timer1');
-        var start2 = document.getElementById('timer2');
-        var start3 = document.getElementById('timer3');
-        var parar = document.getElementById('detener');
-
-        start1.onclick = function () {
-            i = Aleatorios(2);
-            new countdown('countdown1', 0, i);
-        }
-        start2.onclick = function () {
-            i = Aleatorios(10);
-            new countdown('countdown2', 0, i);
-        }
-        start3.onclick = function () {
-            i = Aleatorios(10);
-            new countdown('countdown3', 0, i);
-        }
-        parar.onclick = function () {
-            clearInterval(interval1); clearInterval(interval2); clearInterval(interval3);
-        }
-
-
-    });
-</script>
-
 <pruebas>
     @*<script>
 
@@ -208,9 +241,49 @@
             */
         </script>*@
 </pruebas>
+<script>
 
-<h2>Inicio</h2>
-<form method="post" id="formulario" name="formulario">
+    $(document).ready(function () {
+        var i;
+        //setTimeout(clickbutton, 10);
+
+        //function clickbutton() {
+        //    // simulamos el click del mouse en el boton del formulario
+        //    $("#timer1").click(); $("#timer2").click(); $("#timer3").click();
+        //}
+        //clickbutton();
+        EnviarAsincrono();
+
+        var start1 = document.getElementById('timer1');
+        var start2 = document.getElementById('timer2');
+        var start3 = document.getElementById('timer3');
+        var parar = document.getElementById('detener');
+
+
+
+        start1.onclick = function () {
+            i = Aleatorios(2);
+            new countdown('countdown1', 0, 5);
+            // $("#boton").click();
+        }
+
+        start2.onclick = function () {
+            i = Aleatorios(3);
+            new countdown('countdown2', 0, i);
+        }
+        start3.onclick = function () {
+            i = Aleatorios(10);
+            new countdown('countdown3', 0, i);
+        }
+        parar.onclick = function () {
+            clearInterval(interval1); clearInterval(interval2); clearInterval(interval3);
+        }
+        MostrarPacientes();
+
+    });
+</script>
+
+<form method="post" id="formulario" name="formulario" hidden>
     Pon algo<br />
     @*saludo <input type="text" name="saludo" id="saludo"  /><br />*@
     IDPaciente <input type="number" name="IDPaciente" id="IDPaciente" /><br />
@@ -221,40 +294,128 @@
     IDEnfermedad<input type="number" name="IDEnfermedad" id="IDEnfermedad" /><br />
     Baja<input type="text" name="Baja" id="Baja" /><br />
     Eliminado <input type="text" name="Eliminado" id="Eliminado" /><br />
-    <button type="submit" id="boton">Enviar</button>
+    <button type="submit" id="boton" name="boton">enviar</button>
 </form>
-
-<div id='countdown1'></div>
 <div id='countdown2'></div>
 <div id='countdown3'></div>
 <input id="timer1" type="button" value="Start timer 1" />
 <input id="timer2" type="button" value="Start timer 2" />
 <input id="timer3" type="button" value="Start timer 3" />
 <input id="detener" type="button" value="Parar relojes" />
-@if (Model != null)
-{
-    <ul>
-        @foreach (var ape in Model)
-        {
-            <li>@ape</li>
-        }
-    </ul>
-}
-<h1> @ViewBag.saludo </h1>
-<h1 style="color:rebeccapurple">@ViewBag.controlador</h1>
-
-<div id="dinamico" style="z-index:-1">
-    <div id="draggable" class="ui-widget-content" style="z-index:2">
-        <p>Drag me to my target</p>
-    </div>
-    @*<div id="droppable" class="ui-widget-header">
-        <p>Drop here</p>
-    </div>*@
+<input id="btnmostrar" type="button" value="Mostrar pacientes asinc" />
+<div class="tg-wrap">
+    <table class="table table-bordered" style="width:700px;height:900px">
+        <tbody>
+            <tr>
+                <th class="tg-yw4l" colspan="9" width="1010px" height="70px">
+                    @*reloj*@
+                    <div id='countdown1' align="center" style="font-size:xx-large;color:orangered;"></div>
+                </th>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" rowspan="6"></td>
+                <td class="tg-yw4l" colspan="5" rowspan="3">
+                    <div class="container">
+                        <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-7" id="dinamico" style="z-index:3">
+                                @*<div id="draggable" class="ui-widget-content" style="z-index:4">
+                                        <p>MEC</p>
+                                    </div>*@
+                            </div>
+                            <div class="col-sm-3"></div>
+                        </div>
+                        <div class="row CONTROLES">
+                            <div class="col-sm-12"></div>
+                        </div>
+                    </div>
+                </td>
+                <td class="tg-yw4l"></td>
+                <td class="tg-yw4l" style="text-align:right;height:70px;width:auto">
+            <tr>
+                <td></td>
+                <td>
+                    <p style="font-size:xx-large;color:blueviolet;">SCORE</p>
+                    <div id="score" style="font-size:xx-large;text-align:right;color:blueviolet;">0</div>
+                </td>
+                <td class="tg-yw4l" rowspan="6"></td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l" colspan="2" rowspan="5"></td>
+            </tr>
+            <tr></tr>
+            <tr>
+                <td class="tg-rg0h" colspan="5" style="text-align:center">MEDICINAS</td>
+            </tr>
+            <tr>
+                <td class="tg-yw4l">mas1</td>
+                <td class="tg-yw4l">mas2</td>
+                <td class="tg-yw4l">mas3</td>
+                <td class="tg-yw4l">mas4</td>
+                <td class="tg-yw4l"></td>
+            </tr>
+            <tr class="table-bordered">
+                <td class="tg-yw4l"></td>
+                <td class="tg-yw4l" id="medicina1">
+                    <div id="draggable" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </td>
+                <td class="tg-yw4l" id="medicina2">
+                    <div id="draggable2" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </td>
+                <td class="tg-yw4l" id="medicina3">
+                    <div id="draggable3" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </td>
+                <td class="tg-yw4l" id="medicina4">
+                    <div id="draggable4" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+<p></p>
 
 
 
+@*<div id="divpacientes"></div> *@
+@*<h1> @ViewBag.saludo </h1>
+    <h1 style="color:rebeccapurple">@ViewBag.controlador</h1>*@ @*Muestra la vista parcial*@
 
 
-
-@*<div style="position:absolute;top:100px;left:200px"><h1>dadeddeddscfdsfdsfds</h1></div>*@
+    @*<div>
+            @if (Model != null)
+            {
+                <ul>
+                    @foreach (var ape in Model)
+                    {
+                        <li>@ape</li>
+                    }
+                </ul>
+            }
+        </div>*@
+    @*<div id="dinamico" style="z-index:-1">
+            <div id="draggable" class="ui-widget-content" style="z-index:2">
+                <p>MEC</p>
+            </div>
+        </div>*@
+    @*<div class="container">
+            <div class="row tablero" style="background-color:antiquewhite;height:500px;width:900px;" name="tablero">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-7" id="dinamico" style="z-index:3">
+                    <div id="draggable" class="ui-widget-content" style="z-index:4">
+                        <p>MEC</p>
+                    </div>
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+            <div class="row CONTROLES">
+                <div class="col-sm-12"></div>
+            </div>
+        </div>*@

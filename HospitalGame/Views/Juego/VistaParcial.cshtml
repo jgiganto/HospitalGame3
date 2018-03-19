@@ -1,0 +1,13 @@
+﻿@model List<String>
+
+<div>
+    @if (Model != null)
+    {
+        <ul>
+            @foreach (var ape in Model)
+            {
+                <li>@ape</li>
+            }
+        </ul>
+    }
+</div>

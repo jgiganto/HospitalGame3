@@ -1,14 +1,25 @@
 ﻿
+var topex = ""; topey = "";
 function Aleatorios(tope)
     {
-        var i = 0;
+        var i = 1;
        i = Math.floor((Math.random() * tope) + 1);
     return i;
 }
 
-function PosicionAleatoria() {
-    var i = 0;
-    i = Math.floor((Math.random() * 800) + 1);
-    return i.toString();
+function PosicionAleatoriaX(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
 
+}
+function PosicionAleatoriaY(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function EnfermoAleatorio(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
+function GeneradorAleatorio(min, max) {
+    //return Math.floor(Math.random() * (max - min)) + min;
+    return 2;
 }
